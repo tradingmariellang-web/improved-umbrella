@@ -1,0 +1,364 @@
+/* Custom properties to match your brand colors */
+:root {
+    --bg-dark: #0d1117;
+    --card-bg: #161b22;
+    --brand-green: #2ea043;
+    --brand-gold: #d4af37;
+    --text-silver: #c9d1d9;
+}
+
+body {
+    background-color: var(--bg-dark);
+    color: var(--text-silver);
+    font-family: 'Courier New', Courier, monospace; /* Tech/Code vibe */
+    margin: 0;
+    padding: 10px;
+}
+
+header {
+    border-bottom: 2px solid var(--brand-gold);
+    padding: 20px 0;
+    text-align: center;
+}
+
+h1 {
+    color: var(--brand-green);
+    font-size: 1.2rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+#chart-container {
+    background: var(--card-bg);
+    border: 1px solid #30363d;
+    border-radius: 8px
+:root {
+    --bg-dark: #000000;         /* Pure black for maximum contrast */
+    --card-bg: #111111;         /* Slightly lighter black for sections */
+    --brand-green: #00ff00;     /* Vibrant Emerald/Neon Green */
+    --brand-gold: #ffd700;      /* Classic Gold */
+    --heading-yellow: #ffff00;  /* Bright Yellow for headings */
+    --text-silver: #e0e0e0;     /* Bright Silver for body text */
+}
+
+body {
+    background-color: var(--bg-dark);
+    color: var(--text-silver);
+    font-family: 'Courier New', Courier, monospace;
+    margin: 0;
+    padding: 15px;
+}
+
+header {
+    border-bottom: 3px solid var(--brand-gold);
+    padding: 25px 0;
+    margin-bottom: 20px;
+}
+
+/* Yellow Font Heading requested */
+h1, h2, h3 {
+    color: var(--heading-yellow); 
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+#chart-container {
+    background: var(--card-bg);
+    border: 2px solid var(--brand-green); /* Emerald Green border */
+    border-radius: 4px;
+    height: 350px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 0 15px rgba(0, 255, 0, 0.2); /* Subtle green glow */
+}
+
+.placeholder-chart {
+    color: var(--brand-gold);
+    font-weight: bold;
+    animation: pulse 1.5s infinite;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    background: var(--card-bg);
+}
+
+th {
+    color: var(--heading-yellow); /* Yellow headers for the table */
+    border-bottom: 2px solid var(--brand-gold);
+    padding: 12px;
+    text-align: left;
+}
+
+td {
+    padding: 12px;
+    border-bottom: 1px solid #222;
+}
+
+/* Color coding for trade actions */
+.buy { color: var(--brand-green); font-weight: bold; }
+.sell { color: #ff4444; font-weight: bold; }
+
+@keyframes pulse {
+    0% { transform: scale(1); opacity: 0.7; }
+    50% { transform: scale(1.05); opacity: 1; }
+    100% { transform: scale(1); opacity: 0.7; }
+}
+/* Styling for the Big Ovie 1 Heading */
+h1.brand-title {
+    color: #ffff00; /* Bright Yellow Font */
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 2.5rem; /* Large and impactful */
+    font-weight: 900;
+    text-transform: uppercase;
+    letter-spacing: 8px; /* High-tech spacing */
+    margin: 20px 0;
+    text-align: left;
+    
+    /* 3D Glitch Effect using Emerald Green and Gold shadows */
+    text-shadow: 
+        2px 2px 0px #00ff00, 
+        -2px -2px 0px #d4af37;
+    
+    border-left: 5px solid #ffd700; /* Gold accent bar on the left */
+    padding-left: 15px;
+}
+
+/* Secondary "Dev/Trading" subtitles */
+.sub-header {
+    color: #888;
+    font-size: 0.8rem;
+    letter-spacing: 4px;
+    margin-bottom: 10px;
+}
+/* Solid High-Contrast Yellow Heading */
+h1.brand-title {
+    color: #ffff00; /* Pure Yellow */
+    font-family: 'Courier New', monospace;
+    font-size: 2.2rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 5px;
+    margin: 15px 0;
+    padding-left: 10px;
+    border-left: 4px solid #00ff00; /* Emerald Green accent */
+}
+
+/* 3D Ticker Rotation - Clean Version */
+#live-ticker-banner {
+    background-color: #000000;
+    border-top: 1px solid #ffd700; /* Gold top border */
+    border-bottom: 1px solid #ffd700; /* Gold bottom border */
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+    /* 3D Animation Settings */
+    transform-style: preserve-3d;
+    animation: cleanRotate 10s linear infinite;
+}
+
+@keyframes cleanRotate {
+    0% { transform: perspective(1000px) rotateX(0deg); }
+    100% { transform: perspective(1000px) rotateX(360deg); }
+}
+
+/* Institutional Subtext */
+.description-text {
+    color: #c9d1d9; /* Silver */
+    font-size: 0.9rem;
+    line-height: 1.6;
+    max-width: 90%;
+}
+#terminal-console {
+    background: #050505; /* Deepest black */
+    border: 1px solid #333;
+    border-radius: 5px;
+    margin: 20px 0;
+    font-family: 'Courier New', monospace;
+}
+
+.console-header {
+    background: #1a1a1a;
+    padding: 8px;
+    display: flex;
+    align-items: center;
+    border-bottom: 1px solid #333;
+}
+
+.dot {
+    height: 8px;
+    width: 8px;
+    border-radius: 50%;
+    margin-right: 5px;
+}
+
+.red { background: #ff5f56; }
+.yellow { background: #ffbd2e; }
+.green { background: #27c93f; }
+
+.console-title {
+    color: #666;
+    font-size: 10px;
+    margin-left: 10px;
+    letter-spacing: 1px;
+}
+
+#log-output {
+    padding: 15px;
+    height: 120px;
+    overflow-y: hidden;
+}
+
+.log-entry {
+    color: #00ff00; /* Emerald Green text */
+    font-size: 0.85rem;
+    margin: 5px 0;
+    opacity: 0.9;
+}
+/* The "Tech Flow" Scanline Effect */
+body::before {
+    content: " ";
+    display: block;
+    position: fixed;
+    top: 0; left: 0; bottom: 0; right: 0;
+    background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.25) 50%), 
+                linear-gradient(90deg, rgba(255, 0, 0, 0.06), rgba(0, 255, 0, 0.02), rgba(0, 0, 255, 0.06));
+    z-index: 9999;
+    pointer-events: none;
+    background-size: 100% 2px, 3px 100%;
+}
+
+/* Flicker Animation for "BIG OVIE 1" */
+.brand-title {
+    animation: tech-flicker 3s linear infinite;
+}
+
+@keyframes tech-flicker {
+    0% { opacity: 1; }
+    3% { opacity: 0.4; }
+    6% { opacity: 1; }
+    7% { opacity: 0.4; }
+    8% { opacity: 1; }
+    45% { opacity: 1; }
+    46% { opacity: 0.4; }
+    47% { opacity: 1; }
+    100% { opacity: 1; }
+}
+
+/* Institutional Status Pulse */
+.sys-status {
+    color: var(--brand-green);
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    animation: pulse-glow 2s ease-in-out infinite;
+}
+
+@keyframes pulse-glow {
+    0%, 100% { text-shadow: 0 0 5px var(--brand-green); opacity: 0.8; }
+    50% { text-shadow: 0 0 20px var(--brand-green); opacity: 1; }
+}
+/* The "Tech Flow" Scanline Effect */
+body::before {
+    content: " ";
+    display: block;
+    position: fixed;
+    top: 0; left: 0; bottom: 0; right: 0;
+    background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.25) 50%), 
+                linear-gradient(90deg, rgba(255, 0, 0, 0.06), rgba(0, 255, 0, 0.02), rgba(0, 0, 255, 0.06));
+    z-index: 9999;
+    pointer-events: none;
+    background-size: 100% 2px, 3px 100%;
+}
+
+/* Flicker Animation for "BIG OVIE 1" */
+.brand-title {
+    animation: tech-flicker 3s linear infinite;
+}
+
+@keyframes tech-flicker {
+    0% { opacity: 1; }
+    3% { opacity: 0.4; }
+    6% { opacity: 1; }
+    7% { opacity: 0.4; }
+    8% { opacity: 1; }
+    45% { opacity: 1; }
+    46% { opacity: 0.4; }
+    47% { opacity: 1; }
+    100% { opacity: 1; }
+}
+
+/* Institutional Status Pulse */
+.sys-status {
+    color: var(--brand-green);
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    animation: pulse-glow 2s ease-in-out infinite;
+}
+
+@keyframes pulse-glow {
+    0%, 100% { text-shadow: 0 0 5px var(--brand-green); opacity: 0.8; }
+    50% { text-shadow: 0 0 20px var(--brand-green); opacity: 1; }
+}
+/* The "Tech Flow" Scanline Effect */
+body::before {
+    content: " ";
+    display: block;
+    position: fixed;
+    top: 0; left: 0; bottom: 0; right: 0;
+    background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.25) 50%), 
+                linear-gradient(90deg, rgba(255, 0, 0, 0.06), rgba(0, 255, 0, 0.02), rgba(0, 0, 255, 0.06));
+    z-index: 9999;
+    pointer-events: none;
+    background-size: 100% 2px, 3px 100%;
+}
+
+/* Flicker Animation for "BIG OVIE 1" */
+.brand-title {
+    animation: tech-flicker 3s linear infinite;
+}
+
+@keyframes tech-flicker {
+    0% { opacity: 1; }
+    3% { opacity: 0.4; }
+    6% { opacity: 1; }
+    7% { opacity: 0.4; }
+    8% { opacity: 1; }
+    45% { opacity: 1; }
+    46% { opacity: 0.4; }
+    47% { opacity: 1; }
+    100% { opacity: 1; }
+}
+
+/* Institutional Status Pulse */
+.sys-status {
+    color: var(--brand-green);
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    animation: pulse-glow 2s ease-in-out infinite;
+}
+
+@keyframes pulse-glow {
+    0%, 100% { text-shadow: 0 0 5px var(--brand-green); opacity: 0.8; }
+    50% { text-shadow: 0 0 20px var(--brand-green); opacity: 1; }
+}
+.log-line {
+  overflow: hidden; 
+  white-space: nowrap; 
+  border-right: .15em solid orange; /* The blinking cursor */
+  animation: 
+    typing 3.5s steps(40, end),
+    blink-caret .75s step-end infinite;
+}
+
+@keyframes typing {
+  from { width: 0 }
+  to { width: 100% }
+}

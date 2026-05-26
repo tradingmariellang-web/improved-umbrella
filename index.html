@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BIG OVIE 1 | TECH_FLOW_V2</title>
+    <script>
+      window.va = window.va || function () { (window.vaq = window.vaq || []).push(arguments); };
+    </script>
+    <script defer src="/_vercel/insights/script.js"></script>
+    <style>
+        :root {
+            --bg: #000000;
+            --emerald: #00ff00;
+            --yellow: #ffff00;
+            --gold: #ffd700;
+            --scanline: rgba(18, 16, 16, 0.15);
+        }
+
+        body {
+            background-color: var(--bg);
+            color: #fff;
+            font-family: 'Courier New', monospace;
+            margin: 0;
+            padding: 20px;
+            overflow-x: hidden;
+        }
+
+        /* TECH FLOW OVERLAY (SCANLINES & STATIC) */
+        body::before {
+            content: " ";
+            display: block;
+            position: fixed;
+            top: 0; left: 0; bottom: 0; right: 0;
+            background: linear-gradient(var(--scanline) 50%, rgba(0, 0, 0, 0.2) 50%), 
+                        linear-gradient(90deg, rgba(255, 0, 0, 0.04), rgba(0, 255, 0, 0.01), rgba(0, 0, 255, 0.04));
+            z-index: 9999;
+            pointer-events: none;
+            background-size: 100% 3px, 3px 100%;
+        }
+
+        /* 3D ROTATING BANNER */
+        #ticker {
+            background: #080808;
+            border-top: 1px solid var(--gold);
+            border-bottom: 1px solid var(--gold);
+            height: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transform-style: preserve-3d;
+            animation: rotate3D 12s linear infinite;
+            margin-bottom: 30px;
+        }
+
+        @keyframes rotate3D {
+            0% { transform: perspective(1000px) rotateX(0deg); }
+            100% { transform: perspective(1000px) rotateX(360deg); }
+        }
+
+        .price { font-weight: bold; margin: 0 15px; color: var(--emerald); font-size: 0.9rem; }
+
+        /* FLICKER BRANDING */
+        .brand-title {
+            color: var(--yellow);
+            font-size: 2.2rem;
+            letter-spacing: 5px;
+            text-transform: uppercase;
+            margin: 10px 0;
+            animation: flicker 4s linear infinite;
+        }
+
+        @keyframes flicker {
+            0%, 19%, 21%, 23%, 25%, 54%, 56%, 100% { opacity: 1; }
+            20%, 22%, 24%, 55% { opacity: 0.4; }
+        }
+
+        .status-pulse {
+            color: var(--emerald);
+            font-size: 0.7rem;
+            letter-spacing: 2px;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 0.5; text-shadow: 0 0 0px var(--emerald); }
+            50% { opacity: 1; text-shadow: 0 0 10px var(--emerald); }
+        }
+
+        /* TERMINAL LOGS */
+        #console {
+            background: rgba(5, 5, 5, 0.9);
+            border: 1px solid #333;
+            padding: 15px;
+            height: 140px;
+            margin-top: 20px;
+            border-left: 4px solid var(--emerald);
+            position: relative;
+        }
+
+        .log { color: var(--emerald); font-size: 0.8rem; margin: 4px 0; line-height: 1.2; }
+        
+        .cursor {
+            display: inline-block;
+            width: 8px;
+            height: 15px;
+            background: var(--emerald);
+            animation: blink 0.8s infinite;
+            vertical-align: middle;
+        }
+
+        @keyframes blink { 0%, 100% { opacity: 1; } 50% { opacity: 0; } }
+    </style>
+</head>
+<body>
+
+    <div id="ticker">
+        <div class="price">BTC: <span id="btc-val">CONNECTING...</span></div>
+        <div class="price">ETH: <span id="eth-val">CONNECTING...</span></div>
+    </div>
+
+    <p class="status-pulse">● SYS.CONNECTION_SECURE // ARCH.V2.0</p>
+    <h1 class="brand-title">BIG OVIE 1</h1>
+    <p style="font-size: 0.8rem; color: #888; margin-bottom: 20px;">INSTITUTIONAL INTELLIGENCE TERMINAL</p>
+
+    <div id="console">
+        <div id="log-out">
+            <p class="log">> Initializing Tech Flow...</p>
+        </div>
+        <div class="cursor"></div>
+    </div>
+
+    <script>
+        const logOut = document.getElementById('log-out');
+        
+        function addLog(msg) {
+            const p = document.createElement('p');
+            p.className = 'log';
+            p.innerText = `> ${msg}`;
+            logOut.appendChild(p);
+            // Auto-scroll logic: keep the last 6 logs
+            if (logOut.childNodes.length > 7) {
+                logOut.removeChild(logOut.firstChild);
+            }
+        }
+
+        async function fetchMarket() {
+            try {
+                addLog("Syncing Global Liquidity...");
+                const res = await fetch('https://api.coingecko.com/api/v3/simple/price?ids=bitcoin,ethereum&vs_currencies=usd');
+                const data = await res.json();
+                
+                document.getElementById('btc-val').innerText = `$${data.bitcoin.usd.toLocaleString()}`;
+                document.getElementById('eth-val').innerText = `$${data.ethereum.usd.toLocaleString()}`;
+                
+                addLog(`Success: BTC Unit Value @ $${data.bitcoin.usd}`);
+            } catch (e) {
+                addLog("ERR: Connection Lost. Re-routing...");
+            }
+        }
+
+        // Run updates every 30 seconds
+        setInterval(fetchMarket, 30000);
+        fetchMarket();
+
+        // Extra decorative logs for the "Flow"
+        const sysLogs = [
+            "Encrypting Web3 tunnel...",
+            "Analyzing volatility spikes...",
+            "Institutional protocol active.",
+            "Awaiting market signal..."
+        ];
+
+        setInterval(() => {
+            const randomMsg = sysLogs[Math.floor(Math.random() * sysLogs.length)];
+            addLog(randomMsg);
+        }, 8000);
+    </script>
+</body>
+</html>
+            50% { opacity: 1; text-shadow: 0 0 10px var(--emerald); }
+        }
+
+        /* TERMINAL LOGS */
+        #console {
+            background: rgba(5, 5, 5, 0.9);
+            border: 1px solid #333;
+            padding: 15px;
+            height: 140px;
+            margin-top: 20px;
+            border-left: 4px solid var(--emerald);
+            position: relative;
+        }
+
+        .log { color: var(--emerald); font-size: 0.8rem; margin: 4px 0; line-height: 1.2; }
+        
+        .cursor {
+            display: inline-block;
+            width: 8px;
+            height: 14px;
+            background: var(--emerald);
+            animation: blink 0.8s infinite;
+        }
+
+        @keyframes blink {
+            0%, 49% { opacity: 1; }
+            50%, 100% { opacity: 0; }
+        }
+    </style>
+</head>
+<body>
+
+    <div id="ticker">
+        <div class="price">BTC: <span id="btc-val">LOADING...</span></div>
+        <div class="price">ETH: <span id="eth-val">LOADING...</span></div>
+    </div>
+
+    <p class="status-pulse">● SYS.CONNECTION_SECURE // ARCH.V2</p>
+    <h1 class="brand-title">BIG OVIE 1</h1>
+
+    <div id="console">
+        <div id="log-out"></div>
+    </div>
+
+    <script>
+        const logOut = document.getElementById('log-out');
+        
+        function addLog(msg) {
+            const p = document.createElement('p');
+            p.className = 'log';
+            p.innerText = `> ${msg}`;
+            logOut.appendChild(p);
+            if (logOut.childNodes.length > 6) logOut.removeChild(logOut.firstChild);
+        }
+
+        async function fetchMarket() {
+            try {
+                const res = await fetch('https://api.coingecko.com/api/v3/simple/price?ids=bitcoin,ethereum&vs_currencies=usd');
+                const data = await res.json();
+                document.getElementById('btc-val').innerText = `$${data.bitcoin.usd.toLocaleString()}`;
+                document.getElementById('eth-val').innerText = `$${data.ethereum.usd.toLocaleString()}`;
+                addLog(`Market data updated @ ${new Date().toLocaleTimeString()}`);
+            } catch (err) {
+                addLog(`Error: ${err.message}`);
+            }
+        }
+
+        fetchMarket();
+        setInterval(fetchMarket, 60000);
+    </script>
+</body>
+</html>
